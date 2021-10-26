@@ -1,0 +1,148 @@
+h1{
+    color:dodgerblue;
+}
+img{
+    width: 400px;
+}
+#thirdDiv{
+    height: 600px;
+    width: 500px;
+    background: brown;
+    margin: 50px;
+    padding: 50px;
+    border:5px solid black;
+}
+#spanId{
+    font-size: 25px;
+    margin: 50px;
+}
+/*Inicia el estilo dell CV*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Ubuntu', sans-serif;
+}
+root{
+    --xs:0.3rem;
+    --sm:1.6rem;
+    --md:2.6rem;
+    --lg:3.6rem
+    --xl:4.6rem;
+    --xxl:10rem;
+    --cafe:#1C1816;
+    --gris:#36373a;
+}
+body{
+    width: 95%;
+    height: 90%;
+}
+.cabecera{
+    display: flex;
+    height: 20vh;
+    width: 100%;
+}
+.div--cabecera{
+    width: 60vw;
+    height: auto;
+}
+.foto{
+    border-radius: 60%;
+    width: 30vw;
+    height: auto;
+    margin-top: 0.5rem;
+}
+.titulo{
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 3rem;
+    color: var(--cafe);
+    font-weight: 900;
+    margin-left: 3rem;
+    text-align: center;
+}
+.habilidades{
+    display: flex;
+    font-size: var(--xs);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 0 1rem;
+    text-align: justify;
+}
+main p{
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+hr{
+    color: var(--gris);
+}
+.listado{
+    width: 20vw;
+    
+}
+ul li:nth-child(1){
+    margin-top: 4rem;
+}
+ul li:nth-child(2){
+    margin-top: 7rem;
+}
+ul li:nth-child(3){
+    margin-top: 9rem;
+}
+ul li:nth-child(4){
+    margin-top: 6rem;
+}
+.explica{
+    width: 80vw;
+}
+footer{
+    width: 95%;
+    margin-left:1rem;
+    margin-top: 2rem;
+    text-align: justify;
+}
+.span{
+    color: var(--cafe);
+    font-weight: bold;
+}
+.em{
+    text-decoration: underline wavy;
+}
+@media (min-width:640px) {
+    body{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .cabecera{
+       width: 100vw;
+       height: auto;
+    }
+    .foto{
+        width: 10vw;
+    }
+    .titulo{
+        font-size: 7.5rem;
+        margin-right: 50rem;
+    }
+    ul li:nth-child(1){
+        margin-top: 3rem;
+    }
+    ul li:nth-child(2){
+        margin-top: 8rem;
+    }
+    ul li:nth-child(3){
+        margin-top: 8rem;
+    }
+    ul li:nth-child(4){
+        margin-top: 6rem;
+    }
+    main p, .listado, footer{
+        font-size: 2rem;
+    }
+}
+/*Finaliza el estilo dell CV*/
