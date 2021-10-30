@@ -3,21 +3,25 @@
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-
+  return array.pop();
 }
 
 function incrementarPorUno(array) {
   // "array" debe ser una arreglo de números enteros
   // Aumenta cada número por 1 y devuelve el array
   // Tu código:
-
+  for(let i = 0; i < array.length; i++){
+    array[i] = array[i] + 1;
+  }
+  return array;
 }
 
 function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-
+  array.push(elemento);
+  return array;
 }
 
 function dePalabrasAFrase(palabras) {
@@ -26,48 +30,98 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+  let resultado = "";
 
+  for(let i = 0; i < palabras.length; i++ ){
+    resultado += palabras[i];
+    if(i !== (palabras.length -1)){
+      resultado += " " ;
+    }
+  }
+
+  return resultado;
 }
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
+  let resultado;
 
+  resultado = array.includes(elemento);
+
+  return resultado;
 }
 
 function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser un array de enteros
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  let promedio = 0;
 
+  for(let i = 0; i < resultadosTest.length; i++){
+    promedio = promedio + resultadosTest[i];
+  }
+  return promedio / resultadosTest.length;
 }
 
 function numeroMasGrande(numeros) {
   // "numeros" debe ser un array de enteros
   // Devuelve el número más grande
   // Tu código:
-
+  return Math.max(...numeros);
 }
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Tu código:
+  let resultado = 1;
 
+  if(arguments.length === 0){
+    return 0;
+  }else{
+    for(let i = 0; i < arguments.length; i++){
+      resultado *= arguments[i];
+    }
+  }
+  return resultado;
 }
 
 function cuentoElementos(arreglo){
   // Realiza una función que retorne la cantidad de los elementos del arreglo que sean mayores a 18.
   // Tu código:
+  let resultado = [];
 
+  resultado = arreglo.filter(dato => dato > 18);
+
+  return resultado.length;
 }
 
 function todosIguales(arreglo) {
   // Escriba la función todosIguales, si todos los elementos de un arreglo son iguales
   // retornar true, caso contrario retornar false.
   // Tu código:
-  
+  let resultado;
+  let proximo = 1;
+  arreglo.sort();
+
+  for(let i = 0; i < arreglo.length; i++){
+
+    proximo = i + 1;
+
+    if(proximo === (arreglo.length - 1)){
+      break;
+    }
+    
+    if(arreglo[proximo] === arreglo[i]){
+      resultado = true;
+    }else{
+      return false;
+    }
+  }
+
+  return resultado;
 } 
 
 function mesesDelAño(array) {
@@ -75,7 +129,19 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   // Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+    let resultado = [];
 
+    for(let i = 0; i < array.length; i++){
+      if((array[i] === "Enero") || (array[i] === "Marzo") || (array[i] === "Noviembre")){
+        resultado.push(array[i]);
+      }
+    }
+
+    if(resultado.length === 3){
+      return resultado;
+    }else{
+      return "No se encontraron los meses pedidos";
+    }
 }
 
 function breakStatement(numero) {
@@ -86,7 +152,19 @@ function breakStatement(numero) {
   // devolver: "Se interrumpió la ejecución"
   // Pista: usá el statement 'break'
   // Tu código:
+  let arreglo = [];
 
+  for(let i = 0; i < 10; i++){
+    numero+=2;
+    arreglo.push(numero);
+
+    if(numero === i){
+      arreglo = "Se interrumpió la ejecución";
+      break;
+    }
+  }
+
+  return arreglo;
 }
 
 function continueStatement(numero) {
@@ -97,7 +175,21 @@ function continueStatement(numero) {
   // y se continua con la siguiente iteración
   // Pista: usá el statement 'continue'
   // Tu código:
-  
+  let arreglo = [];
+
+  for(let i = 0; i < 10; i++){
+    
+    if( i === 5){
+      numero+=2;
+      continue;
+    }
+
+    numero+=2;
+    arreglo.push(numero);
+
+  }
+
+  return arreglo;
 }
 
 function crearGato(nombre, edad) {
@@ -106,7 +198,14 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
-
+  const objeto ={
+    nombre:nombre,
+    edad:edad,
+    meow:function(){
+      return "Meow!";
+    },
+  };
+  return objeto;
 }
 
 function agregarPropiedad(objeto, property) {
@@ -114,7 +213,8 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
-
+  objeto[property] = null;
+  return objeto;
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -122,14 +222,14 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  
+  objeto[metodo]();
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-
+  return objetoMisterioso.numeroMisterioso * 5;
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -137,13 +237,21 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
+  delete objeto[unaPropiedad];
+  return objeto;
 }
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
+  const objeto = {
+    nombre:nombre,
+    email:email,
+    password:password
+  }
 
+  return objeto;
 }
 
 function tieneEmail(usuario) {
@@ -151,6 +259,15 @@ function tieneEmail(usuario) {
   // De lo contratio, devuelve "false"
   // Tu código:
 
+  if(usuario.hasOwnProperty("email")){
+    if(usuario.email === null){
+      return false;
+    }else{
+      return true;
+    }
+  }else{
+    return false;
+  }
 }
 
 function tienePropiedad(objeto, propiedad) {
@@ -159,13 +276,15 @@ function tienePropiedad(objeto, propiedad) {
   // De lo contrario, devuelve "false"
   // Tu código:
 
+  return (objeto.hasOwnProperty(propiedad));
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
-
+  usuario.password = nuevaPassword;
+  return usuario;
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -173,7 +292,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // Tu código:
-
+  usuario.amigos.push(nuevoAmigo);
+  return usuario;
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -183,7 +303,13 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  let total = 0;
 
+  for(let i = 0;  i < usuario.posts.length; i++){
+    total += usuario.posts[i].likes;
+  }
+  
+  return total;
 }
 
 // No modificar nada debajo de esta línea
